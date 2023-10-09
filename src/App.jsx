@@ -29,6 +29,7 @@ const App = () => {
     37: "Western"
   };
 
+  console.log(import.meta.env.VITE_API)
   const [poster, setPoster] = useState(null);
   const [genreList, setGenreList] = useState([]);
   const [title, setTitle] = useState('');
@@ -66,7 +67,7 @@ const App = () => {
               `&vote_count.gte=${lowestVoteCount}`,
         headers: {
           accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZDk0YmFjOTM2YmNhODdjOTJhNTY4MmUwOTAwMDQ3OCIsInN1YiI6IjY1MjIwNmQ5OTVjMGFmMDExZDVjYWJmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.85wGwO_ra0lye0v2DbZO7HZ_HfTfmPZZj-CKN070jrs'
+          Authorization: import.meta.env.VITE_API,
         }
       };
       const response = await axios.request(options);
